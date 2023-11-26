@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Your Page Title</title>
+</head>
+
+<style>
+    body {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .item-list {
+        height: 405px;
+        overflow: auto;
+    }
+
+    .item-keranjang {
+        height: 75px;
+    }
+
+    .navbar {
+        height: 35px; /* You can adjust the height as needed */
+    }
+
+    .navbar-brand {
+        font-size: 1.5em; /* You can adjust the font size of the brand as needed */
+    }
+
+   
+
+</style>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Starbhak Mart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+
+        <div class="col-4 ">
+            <div class="bg-primary d-flex justify-content-center mt-2">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Take down   
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="btn btn-primary d-flex justify-content-center mt-2 text-white">
+                <div class="profile ">
+                    <h4>Waldan Zubary</h4>
+                </div>
+            </div>
+
+            <!-- ini buat isi nya -->
+            <div id="item-list" class="item-list bg-light"></div>
+            <div id="item-keranjang" class="item-keranjang bg-primary mt-2"></div>
+            <div id="konfirm" class="bg-primary mt-2 d-flex justify-content-center text-white"><h1>Batas Pembelian : 10</h1></div>
+        </div>
+        <!-- ==== -->
+
+        <div class="col-8 ">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-light mt-2">
+                <div class="container-fluid">
+                    <div class="teksnya">
+                        <h4>List item</h4>
+                    </div>
+                    <div class="justify-content-end">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" onkeyup="searchItem()">
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="row d-flex container-fluid">
+
+               
+
+        
+                <div class="card p-3 mt-2" style="width: 10rem;">
+                    <img src="download (3).jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-title"><b>Burger</b></p>
+                        <p class="card-text">Rp. 5.000</p>
+                        <button class="btn btn-primary " onclick="addToCart('Burger', 5000)">Add</button>
+                    </div>
+                </div>
+
+                <div class="card p-3 mt-2" style="width: 10rem;">
+                  <img src="download (4).jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <p class="card-title"><b>Kentang</b></p>
+                      <p class="card-text">Rp. 13.000</p>
+                      <button class="btn btn-primary" onclick="addToCart('Kentang', 13000)">Add</button>
+                  </div>
+              </div>
+
+              <div class="card p-3 mt-2" style="width: 10rem;">
+                <img src="download (5).jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-title"><b>Basreng</b></p>
+                    <p class="card-text">Rp. 2.000</p>
+                    <button class="btn btn-primary" onclick="addToCart('Basreng', 2000)">Add</button>
+                </div>
+            </div>
+
+
+            <div class="card p-3 mt-2" style="width: 10rem;">
+              <img src="D1.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <p class="card-title"><b>Kebab</b></p>
+                  <p class="card-text">Rp. 15.000</p>
+                  <button class="btn btn-primary" onclick="addToCart('Kebab', 15000)">Add</button>
+              </div>
+          </div>
+
+
+          <div class="card p-3 mt-2" style="width: 10rem;">
+            <img src="D2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-title"><b>Chitato</b></p>
+                <p class="card-text">Rp. 2.000</p>
+                <button class="btn btn-primary" onclick="addToCart('Chitato', 2000)">Add</button>
+            </div>
+        </div>
+
+
+        <div class="card p-3 mt-2" style="width: 10rem;">
+          <img src="download (6).jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+              <p class="card-title"><b>Nasgor</b></p>
+              <p class="card-text">Rp. 15.000</p>
+              <button class="btn btn-primary" onclick="addToCart('Nasgor', 15000)">Add</button>
+          </div>
+      </div>
+
+<!-- minuman -->
+      <div class="card p-3 mt-2" style="width: 10rem;">
+        <img src="download (7).jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-title"><b>Freshtea</b></p>
+            <p class="card-text">Rp. 5.000</p>
+            <button class="btn btn-primary" onclick="addToCart('Freshtea', 5000)">Add</button>
+        </div>
+    </div>
+
+    <div class="card p-3 mt-2" style="width: 10rem;">
+        <img src="download (8).jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-title"><b>Teh-Botol</b></p>
+            <p class="card-text">Rp. 5.000</p>
+            <button class="btn btn-primary" onclick="addToCart('Teh-Botol', 5000)">Add</button>
+        </div>
+    </div>
+
+    <div class="card p-3 mt-2" style="width: 10rem;">
+        <img src="download (9).jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-title"><b>Kopi-Hitam</b></p>
+            <p class="card-text">Rp. 3.000</p>
+            <button class="btn btn-primary" onclick="addToCart('Kopi-Hitam', 3000)">Add</button>
+        </div>
+    </div>
+
+    <div class="card p-3 mt-2" style="width: 10rem;">
+        <img src="download (10).jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-title"><b>Air-Mineral</b></p>
+            <p class="card-text">Rp. 3.000</p>
+            <button class="btn btn-primary" onclick="addToCart('Air-Mineral', 3000)">Add</button>
+        </div>
+    </div>
+
+    <div class="card p-3 mt-2" style="width: 10rem;">
+        <img src="download (11).jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-title"><b>Es-Jeruk</b></p>
+            <p class="card-text">Rp. 5.000</p>
+            <button class="btn btn-primary" onclick="addToCart('Es-Jeruk', 5000)">Add</button>
+        </div>
+    </div>
+
+    <div class="card p-3 mt-2" style="width: 10rem;">
+        <img src="download (12).jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-title"><b>Teh-Tawar</b></p>
+            <p class="card-text">Rp. 2.000</p>
+            <button class="btn btn-primary" onclick="addToCart('Teh-Botol', 2000)">Add</button>
+        </div>
+    </div>
+
+
+
+    
+
+    
+
+                <!-- Add more cards as needed -->
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="bg-primary mt-2">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid d-flex justify-content-end">
+                <button id="deleteAllItems" class="btn btn-primary p-1"><h8>Print Recipt?</h8></button>
+               
+             
+                
+            </div>
+        </nav>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Your additional scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        // Set the maximum number of items in the cart
+        var maxItems = 10;
+
+        // Function to add item to the cart
+        function addToCart(productName, price) {
+            // Check the current number of items in the cart
+            var currentItemCount = $('#item-list .card').length;
+
+            // If the maximum limit is reached, prevent adding more items
+            if (currentItemCount >= maxItems) {
+                alert('Maximum limit reached. You cannot add more items.');
+                return;
+            }
+
+            // Add the selected item to the cart
+            $('#item-list').append(`
+                <div class="card p-2 mt-1">
+                    <span>${productName} - Rp ${price}</span>
+                    <button class="btn btn-danger btn-sm float-right delete-item">Delete</button>
+                </div>
+            `);
+
+            // Update total harga and tax in item-keranjang
+            updateItemKeranjang();
+        }
+
+        // Handle delete item button click
+        $('#item-list').on('click', '.delete-item', function () {
+            $(this).closest('.card').remove();
+
+            // Update total harga and tax in item-keranjang after deleting an item
+            updateItemKeranjang();
+        });
+
+         // Handle delete all items button click
+         $('#deleteAllItems').on('click', function () {
+        // Remove all items from the cart
+        $('#item-list').empty();
+
+        // Update total harga and tax in item-keranjang after deleting all items
+        updateItemKeranjang();
+        });
+
+        // Function to update total harga and tax in item-keranjang
+        function updateItemKeranjang() {
+            var totalHarga = 0;
+
+            // Calculate total harga
+            $('#item-list .card').each(function () {
+                var priceText = $(this).find('span').text().split('Rp ')[1]; // Extract the price part
+                totalHarga += parseFloat(priceText.replace(',', '')); // Remove commas and convert to float
+            });
+
+            // Calculate tax (10% of total harga)
+            var tax = 0.1 * totalHarga;
+
+            // Update item-keranjang
+            $('#item-keranjang').html(`
+                <div class="text-white ">
+                    Total Harga : Rp ${totalHarga.toLocaleString()} <br>
+                    Tax (10%) : Rp ${tax.toLocaleString()} <br>
+                    Total Harga + Tax : Rp ${(totalHarga + tax).toLocaleString()}
+                </div>
+            `);
+        }
+
+        function searchItem() {
+            var searchKeyword = $("#searchInput").val().toLowerCase();
+
+            // Show all items if the search input is empty
+            if (searchKeyword === "") {
+                $(".card").show();
+                return;
+                }
+
+            // Hide all items and show only the ones matching the search keyword
+            $(".card").hide().filter(function () {
+                 var cardTitle = $(this).find(".card-title").text().toLowerCase();
+                 return cardTitle.includes(searchKeyword);
+                 }).show();
+        }
+    </script>
+</body>
+
+</html>
